@@ -6,7 +6,7 @@ namespace StarWars
 {
     public class StarWarsQuery : ObjectGraphType<object>
     {
-        public StarWarsQuery(StarWarsData data)
+        public StarWarsQuery(StarWarsData data, Respository respository)
         {
             Name = "Query";
 

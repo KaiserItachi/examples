@@ -8,7 +8,7 @@ using GraphQL.Http;
 using GraphQL.Instrumentation;
 using GraphQL.Types;
 using GraphQL.Validation.Complexity;
-using StarWars;
+using GraphQLSample.GraphqlSchema;
 
 namespace GraphQL.GraphiQL.Controllers
 {
@@ -22,7 +22,7 @@ namespace GraphQL.GraphiQL.Controllers
         public GraphQLController(
             IDocumentExecuter executer,
             IDocumentWriter writer,
-            StarWarsSchema schema)
+            GraphqlSchema schema)
         {
             _executer = executer;
             _writer = writer;
@@ -34,13 +34,7 @@ namespace GraphQL.GraphiQL.Controllers
             };
         }
 
-        // This will display an example error
-        [HttpGet]
-        public Task<HttpResponseMessage> GetAsync(HttpRequestMessage request)
-        {
-            return PostAsync(request, new GraphQLQuery { Query = "query foo { hero }", Variables = null });
-        }
-
+        
         [HttpPost]
         public async Task<HttpResponseMessage> PostAsync(HttpRequestMessage request, GraphQLQuery query)
         {

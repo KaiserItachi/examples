@@ -209,9 +209,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\StarWars\StarWars.csproj">
-      <Project>{9e4b1483-d1f1-4b8a-b5bf-9bedcc437d12}</Project>
-      <Name>StarWars</Name>
+    <ProjectReference Include="..\GraphQLSample\GraphQLSample.csproj">
+      <Project>{bbb03e4b-7f28-4ad9-9292-a52c0925f1cc}</Project>
+      <Name>GraphQLSample</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

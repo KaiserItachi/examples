@@ -1,7 +1,10 @@
 using GraphQL.Http;
 using IoC;
-using StarWars;
-using StarWars.Types;
+using GraphQLSample;
+using GraphQLSample.GraphqlTypes;
+using GraphQLSample.GraphqlMutation;
+using GraphQLSample.GraphqlQuery;
+using GraphQLSample.GraphqlSchema;
 
 namespace GraphQL.GraphiQL
 {
@@ -20,14 +23,12 @@ namespace GraphQL.GraphiQL
             container.Singleton<IDocumentExecuter>(new DocumentExecuter());
             container.Singleton<IDocumentWriter>(new DocumentWriter(true));
 
-            container.Singleton(new StarWarsData());
-            container.Register<StarWarsQuery>();
-            container.Register<StarWarsMutation>();
-            container.Register<HumanType>();
-            container.Register<HumanInputType>();
-            container.Register<DroidType>();
-            container.Register<CharacterInterface>();
-            container.Singleton(new StarWarsSchema(new FuncDependencyResolver(type => container.Get(type))));
+            container.Singleton(new Repository());
+            container.Register<AccountType>();
+            container.Register<BranchType>();
+            container.Register<GraphqlQuery>();
+            container.Register<GraphqlMutation>();
+            container.Singleton(new GraphqlSchema(new FuncDependencyResolver(type => container.Get(type))));
 
             return container;
         }
